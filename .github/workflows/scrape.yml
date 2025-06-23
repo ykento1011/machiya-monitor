@@ -1,0 +1,20 @@
+name: Scrape and Notify
+
+on:
+  schedule:
+    # JST: 9:00, 13:00, 18:00（= UTC: 0:00, 4:00, 9:00）
+    - cron: '0 0 * * *'
+    - cron: '0 4 * * *'
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - run: pip install -r requirements.txt
+      - run: python run.py
