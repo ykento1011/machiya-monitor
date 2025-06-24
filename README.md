@@ -7,9 +7,9 @@
 ## 🚀 機能概要
 
 - 対応サイト（2025年6月時点）：
-  - [言の葉不動産](https://www.kotonohaweb.com/)
+  - [ことのは不動産](https://www.kotonohaweb.com/)
   - [金澤町家情報バンク](https://bank.kanazawa-machiyajouho.jp/)
-  - [英和不動産](https://www.eiwa-land.co.jp/)
+  - [永和地所](https://www.eiwa-land.co.jp/)
   - [金沢テナントナビ（能加）](https://tenant.noka.co.jp/property)
 
 - 差分（新着物件）検出ロジック
