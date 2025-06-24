@@ -10,6 +10,10 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    # --- ↓ここから追加 ---
+    permissions:
+      contents: write
+    # --- ↑ここまで追加 ---
     env:
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
     steps:
