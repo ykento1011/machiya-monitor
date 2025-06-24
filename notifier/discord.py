@@ -1,6 +1,6 @@
 import requests
 
-WEBHOOK_URL = "https://discord.com/api/webhooks/1386697408372539433/q-gS9VMOiwNMES-q_rmFh4XHPtBk0RZ-H7XkfHNnTuUNTp8jug_NCwKwnKjzOp7A3oax"
+WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL") 
 
 SOURCE_URLS = {
     "kotonoha": "https://www.kotonohaweb.com/",
@@ -17,3 +17,5 @@ def send_to_discord(site, messages):
     if site in SOURCE_URLS:
         content += f"\n\n🔗 [サイトを見る]({SOURCE_URLS[site]})"
     requests.post(WEBHOOK_URL, json={"content": content})
+
+    # This workflow is triggered by schedule and manual dispatch
