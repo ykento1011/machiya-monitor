@@ -14,6 +14,9 @@
   - [金澤町家情報バンク](https://bank.kanazawa-machiyajouho.jp/)
   - [永和地所](https://www.eiwa-land.co.jp/)
   - [金沢テナントナビ（のうか不動産）](https://tenant.noka.co.jp/property)
+  - LOOP不動産 (at-home)
+  - パシフィック不動産
+  - 金沢R不動産
 
 - 差分（新着物件）検出ロジック
 - Discord Webhook 通知（1日3回）
