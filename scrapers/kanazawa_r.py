@@ -11,25 +11,36 @@ HEADERS = {
 def scrape_kanazawa_r():
     """
     金沢R不動産のサイトから物件リストを取得します。
-    物件名は <b> タグで囲まれているため、これをキーに抽出します。
+    物件タイトルのみをCSSセレクタで正確に抽出します。
     """
     try:
-        # User-Agentをヘッダーに含めてリクエスト
-        response = requests.get(URL, headers=HEADERS, timeout=15) # タイムアウトも設定
+        response = requests.get(URL, headers=HEADERS, timeout=15)
         response.raise_for_status()
         response.encoding = response.apparent_encoding
 
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        b_tags = soup.find_all('b')
+        # 物件タイトルのみをCSSセレクタで正確に指定して取得
+        # 「div id="estate_box"の中の、styleに"font-size:13px"を含むspanの中の、bタグ」
+        selector = 'div#estate_box span[style*="font-size:13px"] b'
+        title_tags = soup.select(selector)
         
-        items_list = [tag.get_text(strip=True) for tag in b_tags]
-        
-        # フッターなどに含まれる可能性のある "金沢R不動産" という文字列を含む項目は除外
-        items_list = [item for item in items_list if "金沢R不動産" not in item]
+        # タグからテキストを抽出し、リストに格納
+        items_list = [tag.get_text(strip=True) for tag in title_tags]
 
+        # 重複を削除して返す
         return list(set(items_list))
 
     except requests.exceptions.RequestException as e:
         print(f"Error fetching {URL}: {e}")
         return []
+
+# テスト用（このファイル単体で実行すると、取得結果をコンソールに出力します）
+if __name__ == '__main__':
+    items = scrape_kanazawa_r()
+    if items:
+        print("--- 取得した物件タイトル一覧 ---")
+        for item in items:
+            print(item)
+    else:
+        print("物件が取得できませんでした。")
