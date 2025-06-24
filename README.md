@@ -10,7 +10,7 @@
   - [ことのは不動産](https://www.kotonohaweb.com/)
   - [金澤町家情報バンク](https://bank.kanazawa-machiyajouho.jp/)
   - [永和地所](https://www.eiwa-land.co.jp/)
-  - [金沢テナントナビ（能加）](https://tenant.noka.co.jp/property)
+  - [金沢テナントナビ（のうか不動産）](https://tenant.noka.co.jp/property)
 
 - 差分（新着物件）検出ロジック
 - Discord Webhook 通知（1日3回）
