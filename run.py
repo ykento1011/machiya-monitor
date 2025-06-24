@@ -7,6 +7,7 @@ from scrapers.tenant_noka import scrape_tenant_noka
 from scrapers.hatomark import scrape_hatomark
 from scrapers.kanazawa_r import scrape_kanazawa_r  # ← この行を追
 from scrapers.pacific import scrape_pacific  # ← この行を追加
+from scrapers.loop import scrape_loop  # ← この行を追加
 from notifier.discord import send_to_discord
 
 def load_previous(path):
@@ -27,7 +28,9 @@ def main():
         ("tenant_noka", scrape_tenant_noka, "data/tenant_noka_prev.json"),
         ("hatomark", scrape_hatomark, "data/hatomark_prev.json"),
         ("kanazawa_r", scrape_kanazawa_r, "data/kanazawa_r_prev.json"), # ← この行を追加
-         ("pacific", scrape_pacific, "data/pacific_prev.json"), # ← この行を追加
+        ("pacific", scrape_pacific, "data/pacific_prev.json"), # ← この行を追加
+        ("loop", scrape_loop, "data/loop_prev.json"), # ← この行を追加
+
     ]
 
     for site_name, scraper_func, data_path in all_sources:

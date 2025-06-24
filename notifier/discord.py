@@ -13,6 +13,7 @@ SOURCE_URLS = {
     "hatomark": "https://www.hatomarksite.com/search/zentaku/rent/home/train/17/list?home_category%5B%5D=house&price_r_from=&price_r_to=&key_word=&building_area_all_from=&building_area_all_to=&building_area_all_unit=UNIT30&wst%5B%5D=L5BB5WSB9",
     "kanazawa_r": "https://www.realkanazawaestate.jp/", # ← この行を追加しました
     "pacific": "https://pacific-re.jp/type/rent/", # ← この行を追加
+    "loop": "https://asp.athome.jp/067350/shumoku/chintai/search_type/area/bukken?&ken_cd%5B%5D=17&ken_cd%5B%5D=18&lp=200&shozaichi_cd%5B%5D=UENaX1w", # ← この行を追加
 }
 
 def send_to_discord(site, messages):
