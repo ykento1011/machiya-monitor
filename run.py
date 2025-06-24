@@ -30,6 +30,14 @@ def main():
 
     for site_name, scraper_func, data_path in all_sources:
         current = scraper_func()
+
+        # === ↓ここからデバッグ用のコードを追加 ===
+        # 取得したリストの中身をログに出力して確認
+        print(f"[{site_name}] Fetched items count: {len(current)}")
+        # リストが長すぎる場合を考慮し、最初の5件だけ表示するなどの工夫も有効
+        print(f"[{site_name}] Fetched items (sample): {current[:5]}") 
+        # === ↑ここまでデバッグ用のコードを追加 ===
+        
         previous = load_previous(data_path)
         new_items = [msg for msg in current if msg not in previous]
 

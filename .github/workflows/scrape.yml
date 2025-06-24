@@ -2,10 +2,9 @@ name: Scrape and Notify
 
 on:
   schedule:
-    # JST: 9:00, 13:00, 18:00（= UTC: 0:00, 4:00, 9:00）
-    - cron: '0 0 * * *'
-    - cron: '0 4 * * *'
-    - cron: '0 9 * * *'
+    - cron: '0 0 * * *'  # JST 9:00
+    - cron: '0 4 * * *'  # JST 13:00
+    - cron: '0 9 * * *'  # JST 18:00
   workflow_dispatch:
 
 jobs:
@@ -14,9 +13,29 @@ jobs:
     env:
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      # 1. リポジトリのコードをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Pythonの環境をセットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: pip install -r requirements.txt
-      - run: python run.py
+
+      # 3. 必要なライブラリをインストール
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 4. スクレイピングスクリプトを実行
+      - name: Run scraper
+        run: python run.py
+
+      # 5. 【追加したステップ】変更されたファイルをコミット＆プッシュ
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # コミットメッセージ
+          commit_message: "chore: Update data files"
+          # コミット対象のファイルパターン (data/ ディレクトリ以下の全jsonファイル)
+          file_pattern: "data/*.json"
