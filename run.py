@@ -22,14 +22,14 @@ def save_current(path, messages):
 
 def main():
     all_sources = [
-        ("kotonoha", scrape_kotonoha, "data/kotonoha_prev.json"),
-        ("kanazawa_bank", scrape_kanazawa_bank, "data/kanazawa_bank_prev.json"),
-        ("eiwa_land", scrape_eiwa_land, "data/eiwa_land_prev.json"),
-        ("tenant_noka", scrape_tenant_noka, "data/tenant_noka_prev.json"),
-        ("hatomark", scrape_hatomark, "data/hatomark_prev.json"),
-        ("kanazawa_r", scrape_kanazawa_r, "data/kanazawa_r_prev.json"), # ← この行を追加
-        ("pacific", scrape_pacific, "data/pacific_prev.json"), # ← この行を追加
-        ("loop", scrape_loop, "data/loop_prev.json"), # ← この行を追加
+        ("ことのは", scrape_kotonoha, "data/kotonoha_prev.json"),
+        ("町屋バンク", scrape_kanazawa_bank, "data/kanazawa_bank_prev.json"),
+        ("永和地所", scrape_eiwa_land, "data/eiwa_land_prev.json"),
+        ("のうか", scrape_tenant_noka, "data/tenant_noka_prev.json"),
+        ("ハトマーク", scrape_hatomark, "data/hatomark_prev.json"),
+        ("R不動産", scrape_kanazawa_r, "data/kanazawa_r_prev.json"), # ← この行を追加
+        ("パシフィック", scrape_pacific, "data/pacific_prev.json"), # ← この行を追加
+        ("LOOP", scrape_loop, "data/loop_prev.json"), # ← この行を追加
 
     ]
 
