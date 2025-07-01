@@ -14,6 +14,8 @@ SOURCE_URLS = {
     "R不動産": "https://www.realkanazawaestate.jp/", # ← この行を追加しました
     "パシフィック": "https://pacific-re.jp/type/rent/", # ← この行を追加
     "LOOP": "https://asp.athome.jp/067350/shumoku/chintai/search_type/area/bukken?&ken_cd%5B%5D=17&ken_cd%5B%5D=18&lp=200&shozaichi_cd%5B%5D=UENaX1w", # ← この行を追加
+    "yf_fudosan": "https://yf-k.jp/products_houjin/", # ← この行を追加
+
 }
 
 def send_to_discord(site, messages):

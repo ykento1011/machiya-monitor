@@ -8,6 +8,7 @@ from scrapers.hatomark import scrape_hatomark
 from scrapers.kanazawa_r import scrape_kanazawa_r  # ← この行を追
 from scrapers.pacific import scrape_pacific  # ← この行を追加
 from scrapers.loop import scrape_loop  # ← この行を追加
+from scrapers.yf_fudosan import scrape_yf_fudosan  # ← この行を追加
 from notifier.discord import send_to_discord
 
 def load_previous(path):
@@ -30,6 +31,8 @@ def main():
         ("R不動産", scrape_kanazawa_r, "data/kanazawa_r_prev.json"), # ← この行を追加
         ("パシフィック", scrape_pacific, "data/pacific_prev.json"), # ← この行を追加
         ("LOOP", scrape_loop, "data/loop_prev.json"), # ← この行を追加
+        ("yf_fudosan", scrape_yf_fudosan, "data/yf_fudosan_prev.json"), # ← この行を追加
+
 
     ]
 
